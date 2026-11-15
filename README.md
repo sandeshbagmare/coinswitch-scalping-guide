@@ -2,7 +2,9 @@
 
 [Open the reader website](https://sandeshbagmare.github.io/coinswitch-scalping-guide/) or read [the assessment report](REPORT.md).
 
-**Ready to begin local paper implementation; not ready for live trading.**
+**Local replay/PAPER application built and tested offline; GitHub Actions Linux CI passes; not ready for live trading.**
+
+Start with [current progress](https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/12-progress.md) and [local setup](https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/LOCAL-SETUP.md). Source is on `feat/local-trading-platform`; it has not been merged into `main`.
 
 This public companion explains the project in plain language. The [full research repository](https://github.com/sandeshbagmare/coinswitch-scalping-lab) remains private and requires access.
 

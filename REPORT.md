@@ -4,7 +4,7 @@ Updated November 15, 2026.
 
 ## Decision
 
-The planning package is sufficient to start the local paper-trading implementation. It is not a working trading system and is not ready for live funds. This is an engineering assessment, not evidence of profitable strategies.
+The local replay/PAPER application is built and tested offline on feat/local-trading-platform, which has not merged into main. It is not ready for live funds. This is an engineering assessment, not evidence of profitable strategies.
 
 ## What exists
 
@@ -16,7 +16,7 @@ Start with product scope, architecture and risk policy. Then read the local-firs
 
 ## First milestone
 
-Build a local replay/paper workflow with exact accounting, durable order records, cost-aware sizing, restart recovery and a light dashboard. Core paper operation must work without an AI provider. Python/uv/FastAPI/Uvicorn, React/TypeScript and SQLite are proposed. AI explanations are optional; a vector database is not required initially.
+The implemented local replay/PAPER workflow provides exact decimal accounting, durable order records, cost-aware sizing, restart recovery, a light dashboard and explicitly configured read-only depth polling. Core replay/paper operations work without an AI provider. Python/uv/FastAPI/Uvicorn, React/TypeScript and SQLite are implemented. AI explanations are optional; a vector database is not required initially.
 
 ## Before live trading
 
@@ -33,3 +33,9 @@ Small, coherent commits. Independent QA subagents verify code before commit/push
 ## Hosting boundary
 
 This Pages site hosts documentation only. A continuous trading worker needs separate persistent hosting. Current estimates and exclusions are in the private hosting report; no cloud worker has been provisioned.
+
+## Current verification checkpoint
+
+November 16, 2026: 165 backend tests passed with resource warnings treated as errors, one optional native LangChain runtime check skipped because Windows Application Control blocks `jiter`, and 89% statement coverage. Eleven frontend tests, production build, npm audit, Ruff, and Linux/Windows mypy passed locally. GitHub Actions Linux CI passed on commit 584c63c (run 43774401521); later commits contain only documentation. Credential-backed exchange/AI checks and paid hosting remain prerequisites.
+
+Start with current progress and local setup on the feature branch, then scope, architecture, risk policy and roadmap. Research remains available on main.
