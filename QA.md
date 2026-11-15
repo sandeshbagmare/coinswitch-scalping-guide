@@ -1,0 +1,21 @@
+﻿# QA evidence: reader guide
+
+Verified November 15, 2026 by an independent QA subagent before publication.
+
+Result: PASS, no blocking findings.
+
+- Node checks verified 38 HTML/Markdown links, local files/fragments, secret patterns and normalized rule parity: zero errors.
+- Real Edge rendering inspected at 1440x900 and 375x812: no horizontal overflow.
+- Assessment navigation reached #assessment. Keyboard Tab focus was visible.
+- Guide and private-repository assessment reports matched. Public files contained no full research, credentials or account data.
+- Whitespace checks passed. Browser/server stopped; artifacts stored outside repositories.
+
+Commands included playwright-cli goto, resize, eval, click, press Tab, snapshot, screenshot and console; Node checks ran through stdin.
+
+Combined SHA256 for ordered guide files AGENTS.md, README.md, REPORT.md, index.html, style.css, .nojekyll, followed by lab files AGENTS.md, README.md, context/10-repository-rules.md, context/12-progress.md, docs/PROJECT-REPORT.md:
+
+caf72ed55401890ffbff92ffbd5e2cf046f702586b6a7bd7aff30aa4e808e876
+
+Algorithm: SHA256 over relative Windows path + NUL + UTF-8 file text for each file, joined with NUL. This records the pre-publication QA snapshot; later status-only documentation edits do not imply that the snapshot included them.
+
+Limitations: no full automated accessibility audit; private GitHub destinations require account access. Local browser reported a harmless missing favicon. Remote Pages status is verified separately during publication. No trading application or trading tests are claimed.
