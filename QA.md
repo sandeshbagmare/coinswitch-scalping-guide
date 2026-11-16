@@ -35,3 +35,7 @@ November 16, 2026: REPORT.md now records source revision0052be1,213 passing Ubun
 ## Detailed use-case checkpoint refresh
 
 November 16, 2026: REPORT.md now records tested application revision `f5b390a`, the 32-use-case evidence matrix, 310 passing Ubuntu tests / 308 Windows tests with two POSIX-only skips, 90% coverage, 17 frontend tests, and the successful packaged systemd exercise. This refresh changes documentation only. Link, UTF-8, credential-pattern and whitespace checks are performed before publication; earlier browser QA applies to the unchanged site layout. The current report keeps actual account verification and owner-host monitoring/offsite recovery distinct from the tested CI service templates.
+
+## Expanded full-test checkpoint
+
+November 16, 2026: the public assessment records test/release revision `034ad6d`, 318 passing Ubuntu backend tests / 316 Windows tests with two POSIX skips, 91% displayed statement coverage, 17 frontend tests and eight new seeded accounting sequences. Three injected financial faults were detected by the independent sequence reviewer. Latest source CI and release/systemd checks passed. Fresh browser functional/DOM/keyboard checks passed, while screenshots were unavailable in the current Edge automation environment. This publication updates Markdown evidence only; HTML/CSS and product behavior are unchanged. Local links, text encoding, credential patterns and whitespace are checked before publishing.
