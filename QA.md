@@ -1,4 +1,4 @@
-﻿# QA evidence: reader guide
+# QA evidence: reader guide
 
 Verified November 15, 2026 by an independent QA subagent before publication.
 
@@ -31,3 +31,7 @@ Reviewed SHA-256: `index.html` `CCB0CF52DD8B7AB48D2BCC3E267E675531461628A8CA676D
 ## Production validation checkpoint refresh
 
 November 16, 2026: REPORT.md now records source revision0052be1,213 passing Ubuntu tests/211 Windows tests plus two POSIX skips,90% coverage,14 UI tests and the tested source artifact. The index's AI-runtime note was corrected: the no-network constructor passes in the current environment. This was a prose-only change to the existing tested layout; no new browser behavior was introduced. Local Markdown links, UTF-8, credential-pattern and whitespace checks passed. Remote deployment is verified after push.
+
+## Detailed use-case checkpoint refresh
+
+November 16, 2026: REPORT.md now records tested application revision `f5b390a`, the 32-use-case evidence matrix, 310 passing Ubuntu tests / 308 Windows tests with two POSIX-only skips, 90% coverage, 17 frontend tests, and the successful packaged systemd exercise. This refresh changes documentation only. Link, UTF-8, credential-pattern and whitespace checks are performed before publication; earlier browser QA applies to the unchanged site layout. The current report keeps actual account verification and owner-host monitoring/offsite recovery distinct from the tested CI service templates.
