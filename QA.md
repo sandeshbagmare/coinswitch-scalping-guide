@@ -39,3 +39,7 @@ November 16, 2026: REPORT.md now records tested application revision `f5b390a`, 
 ## Expanded full-test checkpoint
 
 November 16, 2026: the public assessment records test/release revision `034ad6d`, 318 passing Ubuntu backend tests / 316 Windows tests with two POSIX skips, 91% displayed statement coverage, 17 frontend tests and eight new seeded accounting sequences. Three injected financial faults were detected by the independent sequence reviewer. Latest source CI and release/systemd checks passed. Fresh browser functional/DOM/keyboard checks passed, while screenshots were unavailable in the current Edge automation environment. This publication updates Markdown evidence only; HTML/CSS and product behavior are unchanged. Local links, text encoding, credential patterns and whitespace are checked before publishing.
+
+## Automatic browser release gate
+
+November 16, 2026: REPORT.md now records revision `947aaf4`, the required six-case desktop/mobile Chromium gate and four inspected Linux screenshots, plus the narrow mobile exact-amount display correction. The earlier screenshot-capture limitation remains historical; fresh current screenshots are available in the private browser workflow artifact. Public site HTML/CSS is unchanged in this refresh. Local link, UTF-8, credential-pattern and whitespace checks precede publication; remote Pages output is verified after push. This is documentation of an offline/synthetic application check, not a live account deployment.
