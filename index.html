@@ -1,15 +1,105 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CoinSwitch Scalping Lab - Start Here</title><link rel="stylesheet" href="style.css"></head><body><main>
-<header><p class="eyebrow">PROJECT GUIDE / NOVEMBER 15, 2026</p><h1>Understand the project.<br>Then run the local app.</h1><p class="intro">A crypto scalping research app: test locally with simulated money, measure the costs, then evaluate a controlled CoinSwitch integration.</p><p class="badge">Local replay/PAPER application built and tested offline. Not ready for live trading.</p></header>
-<nav aria-label="Sections"><a href="#overview">Overview</a><a href="#reading">Reading order</a><a href="#design">Design</a><a href="#assessment">Assessment</a></nav>
-<section id="overview"><h2>The project in one minute</h2><div class="grid"><article><h3>What exists</h3><p>Detailed research and design: architecture, strategies, risk rules, exchange contracts, books, costs, security and implementation steps.</p></article><article><h3>What comes next</h3><p>The built local replay/PAPER app has an auditable ledger, realistic fees, restart recovery and a light dashboard. Core operation needs no AI key.</p></article><article><h3>What remains unproven</h3><p>Strategy profitability, account compatibility and extraordinary return claims remain unvalidated.</p></article></div></section>
-<section id="reading"><h2>Read in this order</h2><p>Start with <a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/12-progress.md">current progress</a> and <a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/LOCAL-SETUP.md">local setup</a>. The application feature branch has not merged into main. Private repository access is required.</p><ol>
-<li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/01-product.md">Product scope</a><span>What we are building and the first milestone.</span></li>
-<li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/02-architecture.md">Architecture</a><span>Components, data flow and tool choices.</span></li>
-<li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/04-risk-policy.md">Risk policy</a><span>Sizing, loss pauses and emergency behavior.</span></li>
-<li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/plans/01-local-first-roadmap.md">Build roadmap</a><span>The order of small, testable delivery steps.</span></li>
-<li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/main/research/README.md">Research atlas</a><span>Specialist evidence when you need deeper detail.</span></li></ol></section>
-<section id="design"><h2>How it should work</h2><p class="flow">Feed or replay &rarr; strategy &rarr; risk checks &rarr; durable order record &rarr; paper broker or separately armed exchange adapter</p><div class="grid"><article><h3>Python backend</h3><p>uv, FastAPI, Uvicorn and SQLite. One execution owner; durable orders and recovery records.</p></article><article><h3>Light React UI</h3><p>Mode, freshness, cash, positions and costs. Pause, cancel and exit are distinct controls.</p></article><article><h3>Optional AI</h3><p>Research and explanations through LangChain Responses. No trading keys or risk overrides. Vector search is deferred.</p></article></div></section>
-<section id="assessment"><h2>Is it good enough right now?</h2><p><strong>For local replay/PAPER use: implemented.</strong> Offline verification is recorded; cleanup and remote CI verification continue. No complete CI pass is claimed.</p><p><strong>For live trading: no.</strong> Actual fees, exchange behavior, order reconciliation, partial fills, outages and recovery still need verification. More documents cannot replace those tests.</p><p>The independent review found defects in illustrative trading-skill examples. Installed skills are research aids, not approved execution code.</p></section>
-<section><h2>Development rules</h2><ul><li>Small commits, each with one coherent purpose and a passing relevant check.</li><li>QA subagents test and review code before it is committed or pushed. Fix findings and rerun affected checks.</li><li>No Codex/AI attribution, generated-by labels or attribution trailers. Keep useful technical comments, type annotations and audit facts.</li><li>Paper mode first. No live orders in tests or CI. No credentials in Git.</li></ul><p><a href="REPORT.md">Assessment report</a> &middot; <a href="https://github.com/sandeshbagmare/coinswitch-scalping-guide">Guide repository</a> &middot; <a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab">Private research repository</a></p></section>
-<footer>Documentation guide only. The application runs locally; no account data or trading controls are hosted on this Pages site.</footer></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A quick reading guide and architecture overview for CoinSwitch Scalping Lab, a local replay and paper trading research application.">
+  <title>CoinSwitch Scalping Lab | Project Guide</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#overview">Skip to project overview</a>
+<main>
+  <header>
+    <p class="eyebrow">PROJECT GUIDE / NOVEMBER 16, 2026</p>
+    <h1>CoinSwitch<br>Scalping Lab</h1>
+    <p class="intro">A local crypto trading research app. Replay market events, simulate orders, inspect costs and recover the ledger after a restart.</p>
+    <p class="badge">Local replay and PAPER implemented. Live trading readiness remains unverified.</p>
+    <nav aria-label="Sections"><a href="#overview">One-minute overview</a><a href="#reading">Reading path</a><a href="#design">Architecture</a><a href="#assessment">Readiness</a></nav>
+  </header>
+
+  <section id="overview">
+    <p class="eyebrow">START HERE / 1 MINUTE</p>
+    <h2>What it does today</h2>
+    <div class="grid">
+      <article><h3>Run an experiment</h3><p>Use a synthetic replay without exchange or AI credentials. Step or run it, pause new entries and inspect orders, fills, fees and audit records.</p></article>
+      <article><h3>Inspect the result</h3><p>A React dashboard reads an authenticated local Python service. SQLite preserves exact decimal accounting, experiment history and state for recovery.</p></article>
+      <article><h3>Know the boundary</h3><p>PAPER simulates execution, including explicitly configured read-only market polling. Profitability and actual live-account behavior have not been established.</p></article>
+    </div>
+    <p class="links"><a href="#design">Understand the architecture</a><a href="REPORT.md">Read the public assessment</a></p>
+  </section>
+
+  <section id="reading">
+    <p class="eyebrow">CHOOSE YOUR DEPTH</p>
+    <h2>The quickest reading path</h2>
+    <ol class="reading">
+      <li><strong>1 minute &mdash; understand the project.</strong><span>Read the overview above and <a href="#assessment">readiness below</a>. Both are public.</span></li>
+      <li><strong>5 minutes &mdash; follow the architecture.</strong><span>Read <a href="#design">the flow, boundaries and decisions</a>, then <a href="REPORT.md">the assessment and verification checkpoint</a>.</span></li>
+      <li><strong>Run it &mdash; use the private source.</strong><span>Start with <a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/12-progress.md">current progress</a> and <a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/LOCAL-SETUP.md">local setup</a>. These links require repository access.</span></li>
+    </ol>
+    <details>
+      <summary>Go deeper: source documents and research</summary>
+      <p>Application links point to <code>feat/local-trading-platform</code>, the implementation branch; it has not merged into <code>main</code>. The full source and research repository remains private.</p>
+      <ul>
+        <li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/01-product.md">Product scope</a> &mdash; goals and first milestone.</li>
+        <li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/02-architecture.md">Architecture decision record</a> &mdash; design intent and future boundaries; consult current progress for what is built.</li>
+        <li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/04-risk-policy.md">Risk policy</a> &mdash; sizing, exposure and loss limits.</li>
+        <li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/plans/01-local-first-roadmap.md">Local-first roadmap</a> &mdash; staged delivery and validation.</li>
+        <li><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/main/research/README.md">Research atlas</a> &mdash; specialist evidence for specific questions.</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="design">
+    <p class="eyebrow">ARCHITECTURE / FOLLOW THE STATE</p>
+    <h2>One local application, one execution owner</h2>
+    <p>A modular Python backend owns strategy decisions, risk checks and execution state. The dashboard requests actions and displays persisted results. The diagram follows the local replay/PAPER path.</p>
+    <ol class="pipeline" aria-label="Replay and paper execution flow">
+      <li><strong>Market input</strong><span>Synthetic replay or explicitly configured read-only feed</span></li>
+      <li><strong>Strategy</strong><span>Deterministic signal or an explicit decision to abstain</span></li>
+      <li><strong>Risk gate</strong><span>Cash, inventory, costs, limits and data health</span></li>
+      <li><strong>Durable intent</strong><span>Record the decision before execution</span></li>
+      <li><strong>Paper broker</strong><span>Simulated orders, fills and fees</span></li>
+      <li><strong>Ledger + UI</strong><span>SQLite records, recovery and dashboard snapshots</span></li>
+    </ol>
+    <div class="grid two">
+      <article><h3>API and dashboard</h3><p>FastAPI/Uvicorn binds to loopback. An operator token authenticates local access. React/TypeScript displays mode, cash, inventory, fees and pending outcomes; operational state is enforced by the backend.</p></article>
+      <article><h3>Execution and recovery</h3><p>One execution owner maintains durable order state and prevents duplicate writers. SQLite stores orders, fills, costs and audit history. Restarts recover persisted state; unresolved outcomes block additional exposure.</p></article>
+      <article><h3>Controls with distinct meanings</h3><p>Pause stops new entries. Cancel concerns an outstanding order. Exit queues an order to reduce inventory, and a replay fill needs a subsequent event. Stopping a process or archiving an experiment never invents a liquidation.</p></article>
+      <article><h3>Optional AI advisory</h3><p>Bounded Responses explanations consume recorded evidence outside the trading path, with a zero-by-default request budget. AI has no exchange tools or risk overrides. Replay and paper operation need no provider key.</p></article>
+    </div>
+    <h3>Why these choices</h3>
+    <div class="table-wrap" role="region" aria-label="Architecture decisions" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Choice</th><th scope="col">Purpose and boundary</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Python + FastAPI</th><td>Keep deterministic strategy, risk and accounting logic together behind one local API.</td></tr>
+          <tr><th scope="row">SQLite + exact decimals</th><td>Keep a durable local ledger with explicit costs and consistent backups; no external database service is needed for the local milestone.</td></tr>
+          <tr><th scope="row">React + TypeScript</th><td>Provide interactive experiment controls and visible state without a second application backend.</td></tr>
+          <tr><th scope="row">Separate live gate</th><td>A guarded programmatic CoinSwitch path exists. The dashboard does not enable live trading; account-specific contracts and fees still require verification.</td></tr>
+          <tr><th scope="row">Bounded AI; no vector database</th><td>Explanations remain optional. The initial workflow has no need for autonomous trading agents or semantic retrieval infrastructure.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="assessment">
+    <p class="eyebrow">READINESS / ENGINEERING EVIDENCE</p>
+    <h2>What the checks establish</h2>
+    <div class="grid two">
+      <article><h3>Local replay/PAPER: implemented</h3><p>Offline backend, interface, accounting and recovery checks are recorded in <a href="REPORT.md">the assessment report</a>, with source revisions and CI evidence. Those checks validate application behavior under the tested conditions.</p></article>
+      <article><h3>Live funds: not ready</h3><p>Real account permissions, fees, order contracts, partial fills, cancellation races, uncertain outcomes and monitored recovery need credential-backed validation. No strategy profitability or extraordinary return claim has been established.</p></article>
+    </div>
+    <p class="note">The optional AI runtime has a native dependency limitation on this Windows host. Replay remains usable. Paid provider calls, credential-backed exchange checks and cloud hosting have not been exercised.</p>
+  </section>
+
+  <section id="workflow">
+    <h2>Development rules</h2>
+    <ul><li>Small, focused commits with relevant checks and independent QA before commit or push.</li><li>Fix review findings and rerun affected checks. Keep tested revisions and limitations visible.</li><li>No credentials, private account data or runtime databases in Git; no live orders in tests or CI.</li><li>No AI attribution or generated-by annotations. Preserve useful technical comments, types and truthful feature descriptions.</li></ul>
+    <p class="links"><a href="https://sandeshbagmare.github.io/portfolio-engineering/">Sandesh Bagmare's portfolio</a><a href="https://sandeshbagmare.github.io/astrology-evidence/">Astrology Evidence guide</a><a href="https://github.com/sandeshbagmare/coinswitch-scalping-guide">Guide repository</a><a href="https://github.com/sandeshbagmare/coinswitch-scalping-lab/tree/feat/local-trading-platform">Trading source (private)</a></p>
+  </section>
+  <footer>Documentation only. The trading application runs locally; this site hosts no account data, exchange connection or trading controls.</footer>
+</main>
+</body>
+</html>

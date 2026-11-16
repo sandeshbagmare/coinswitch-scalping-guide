@@ -1,6 +1,6 @@
 # Project assessment and reading guide
 
-Updated November 15, 2026.
+Updated November 16, 2026.
 
 ## Decision
 
@@ -36,6 +36,8 @@ This Pages site hosts documentation only. A continuous trading worker needs sepa
 
 ## Current verification checkpoint
 
-November 16, 2026: 165 backend tests passed with resource warnings treated as errors, one optional native LangChain runtime check skipped because Windows Application Control blocks `jiter`, and 89% statement coverage. Eleven frontend tests, production build, npm audit, Ruff, and Linux/Windows mypy passed locally. GitHub Actions Linux CI passed on commit 584c63c (run 43774401521); later commits contain only documentation. Credential-backed exchange/AI checks and paid hosting remain prerequisites.
+November 16, 2026: tested application revision `54e2326fdce33943fac788a7b156fdd11d9184f8`. Windows Python 3.14.8 backend checks passed 180 tests with UserWarning and ResourceWarning treated as errors, skipped one optional native LangChain constructor check because Windows Application Control blocks a dependency, and reported 89% statement coverage. Eleven frontend tests, production build, npm audit (zero vulnerabilities), Ruff and strict mypy passed. [GitHub Actions Ubuntu/Python 3.12 CI run 43789957640](https://github.com/sandeshbagmare/coinswitch-scalping-lab/actions/runs/43789957640) passed for the same revision. A real loopback API/React smoke test passed at desktop and mobile sizes; a source archive with the built frontend and a SHA-256 checksum was assembled locally.
+
+The app remains on `feat/local-trading-platform`; `main` retains the research baseline. The source-release workflow exists on that feature branch, but manual GitHub dispatch returned 404 because it is not registered on the default branch; no tagged release or hosted server was published. Credential-backed exchange/AI checks, a trusted live verifier, target-host permissions/services/monitoring and off-host restore drills remain prerequisites. These checks establish local replay/PAPER engineering behavior, not strategy profitability or live readiness.
 
 Start with current progress and local setup on the feature branch, then scope, architecture, risk policy and roadmap. Research remains available on main.

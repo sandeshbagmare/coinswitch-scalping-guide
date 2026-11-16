@@ -1,15 +1,11 @@
-# CoinSwitch Scalping Lab: quick guide
+# CoinSwitch Scalping Lab: public guide
 
-[Open the reader website](https://sandeshbagmare.github.io/coinswitch-scalping-guide/) or read [the assessment report](REPORT.md).
+[Open the project guide](https://sandeshbagmare.github.io/coinswitch-scalping-guide/).
 
-**Local replay/PAPER application built and tested offline; GitHub Actions Linux CI passes; not ready for live trading.**
+A quick reading path and detailed architecture overview for a local crypto trading research application. Start with the one-minute overview, follow the strategy/risk/ledger flow, then read [the assessment](REPORT.md) for current verification and remaining readiness gates.
 
-Start with [current progress](https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/context/12-progress.md) and [local setup](https://github.com/sandeshbagmare/coinswitch-scalping-lab/blob/feat/local-trading-platform/docs/LOCAL-SETUP.md). Source is on `feat/local-trading-platform`; it has not been merged into `main`.
+The replay/PAPER application is implemented and tested offline. It is not ready for live funds, and strategy profitability is unproven. Source and full research remain in the private [coinswitch-scalping-lab repository on feat/local-trading-platform](https://github.com/sandeshbagmare/coinswitch-scalping-lab/tree/feat/local-trading-platform); those links require access. The implementation branch has not merged into main.
 
-This public companion explains the project in plain language. The [full research repository](https://github.com/sandeshbagmare/coinswitch-scalping-lab) remains private and requires access.
+This site is static HTML/CSS with no dependencies, scripts, tracking, account connection or trading functionality. It publishes a summary, not the private research or application data. See [AGENTS.md](AGENTS.md) for repository rules and [QA.md](QA.md) for the original publication checkpoint; that checkpoint does not certify subsequent edits.
 
-Read product scope, architecture, risk policy, then the local-first roadmap. Use the research atlas only when you need deeper evidence. The website links directly to those documents.
-
-Development uses small focused commits, independent QA subagent verification before committing/pushing code, and no AI attribution or generated-by annotations. See [AGENTS.md](AGENTS.md).
-
-The site is static HTML/CSS with no runtime dependencies, scripts, tracking, account connection or trading functionality.
+For the wider project collection, visit [Sandesh Bagmare's portfolio](https://sandeshbagmare.github.io/portfolio-engineering/) or the separate [Astrology Evidence guide](https://sandeshbagmare.github.io/astrology-evidence/).
