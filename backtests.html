@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Historical simulations comparing what 100 USDT would have become over one day, 30 days and 365 days using Binance Spot BTC/USDT data.">
+  <title>100 USDT Historical Backtests | CoinSwitch Scalping Lab</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="backtests.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#results">Skip to backtest results</a>
+<main class="backtests">
+  <header>
+    <p class="eyebrow">COINSWITCH SCALPING LAB</p>
+    <h1>What happened to 100 USDT?</h1>
+    <p class="intro">Compare three trading rules with holding cash and holding BTC across one day, 30 days and 365 days of historical Binance Spot BTC/USDT data.</p>
+    <nav aria-label="Backtest report">
+      <a href="index.html">Project guide</a>
+      <a href="#results">Results</a>
+      <a href="#methods">Simulation method</a>
+      <a href="#paper">CoinSwitch paper checks</a>
+      <a href="backtest-results.json" download>Download full results (JSON)</a>
+    </nav>
+  </header>
+
+  <section id="results" tabindex="-1">
+    <h2>Ending balances and risk</h2>
+    <p>Each rule starts each window with 100 USDT and no BTC. Net return includes modeled execution costs. Drawdown measures the largest decline from a previous equity peak.</p>
+    <p id="results-status" role="status"></p>
+    <noscript><p>Download the results JSON to read the figures without JavaScript.</p></noscript>
+    <div id="periods"></div>
+  </section>
+
+  <section id="methods">
+    <h2>How the simulation works</h2>
+    <div class="grid two">
+      <article>
+        <h3>Signals and fills</h3>
+        <p>Rules see completed hourly candles and can trade at the next hourly open. The model assumes full fills and a single long position. It records remaining BTC at the modeled bid at the end of each window.</p>
+        <p>Trading rules can allocate up to 10% of equity per entry. The passive BTC benchmark can use the full available balance. Cash earns no yield.</p>
+      </article>
+      <article>
+        <h3>Costs and coverage</h3>
+        <p>The tables show the baseline and a fresh simulation at double the assumed fee, spread and slippage. Spread is the full bid to ask distance, so the model applies half that spread to either side.</p>
+        <p>Hourly bars cannot establish actual fill probability, queue position, partial fills or intrahour drawdowns. The model omits taxes, outages and CoinSwitch account fees. These trailing periods overlap and do not provide independent estimates of future performance.</p>
+      </article>
+    </div>
+    <h3>Rules and provenance</h3>
+    <dl id="rules"></dl>
+    <dl id="provenance"></dl>
+    <p>The results use Binance Vision public Binance Spot market data. The aggregate results here are shared for noncommercial educational use under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. See the <a href="https://github.com/binance/binance-public-data/blob/master/TERMS_AND_CONDITIONS.md">Binance Vision data terms</a> and <a href="https://developers.binance.com/en/docs/catalog/core-trading-spot-trading/api/rest-api/market">candle API reference</a>.</p>
+  </section>
+
+  <section id="paper">
+    <h2>CoinSwitch paper checks</h2>
+    <p>A bounded paper session accepted 10 fresh BTC/USDT order book snapshots from CoinSwitch's public Spot WebSocket on the c2c1 route. It started and ended with 100 simulated USDT, with zero simulated orders and fills. The test verified market data and ledger behavior on a live feed. <a href="https://api-trading.coinswitch.co/spot/websockets/order-book">CoinSwitch Spot order book stream</a>.</p>
+    <p>CoinSwitch's public clock request succeeded. The unsigned REST depth and candle requests returned HTTP 401, so signed REST access remains unverified. The historical tables use Binance hourly candles. <a href="https://api-trading.coinswitch.co/spot/reference/depth">CoinSwitch Spot REST depth reference</a>.</p>
+  </section>
+
+  <footer>
+    <p>CoinSwitch Scalping Lab simulates executions for research. This report contains no real orders or fills. <a href="index.html">Return to the project guide</a>.</p>
+  </footer>
+</main>
+</body>
+</html>

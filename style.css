@@ -46,3 +46,19 @@ footer{border-top:1px solid var(--line);margin-top:38px;padding-top:20px;color:v
 @media(max-width:760px){main{padding:16px 16px 40px}header{padding:28px 22px}.grid,.grid.two{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:2.6rem}section{padding-top:32px}th,td{padding:11px}}
 @media(max-width:400px){.pipeline{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.backtests .period{margin-top:26px;padding:24px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.backtests .period h3{margin:0;font-size:1.35rem}
+.backtests .period > p{color:var(--muted);margin:4px 0 12px}
+.backtests .period details{padding:14px;background:#f3f6f8}
+.backtests table{min-width:650px;font-variant-numeric:tabular-nums}
+.backtests caption{text-align:left;font-weight:650;padding:0 0 8px}
+.backtests td{text-align:right}
+.backtests thead th:not(:first-child){text-align:right}
+.backtests tbody tr:nth-child(even){background:#f7f9fb}
+.backtests .gain{color:#166546}
+.backtests .loss{color:#8e2929}
+.backtests dl{margin:0}
+.backtests dt{margin-top:12px;font-weight:650}
+.backtests dd{margin:0;overflow-wrap:anywhere}
+@media(max-width:760px){.backtests .period{padding:16px}}
