@@ -19,6 +19,7 @@
     <nav aria-label="Backtest report">
       <a href="index.html">Project guide</a>
       <a href="#results">Results</a>
+      <a href="#follow-up">Follow-up tests</a>
       <a href="#methods">Simulation method</a>
       <a href="#paper">CoinSwitch paper checks</a>
       <a href="backtest-results.json" download>Download full results (JSON)</a>
@@ -31,6 +32,13 @@
     <p id="results-status" role="status"></p>
     <noscript><p>Download the results JSON to read the figures without JavaScript.</p></noscript>
     <div id="periods"></div>
+  </section>
+
+  <section id="follow-up">
+    <h2>Follow-up strategy tests</h2>
+    <p>These retrospective tests use the same historical BTC/USDT candle capture. The breakout timing test had median excess return of −0.258 percentage points versus passive BTC allocated at 10%, leading in only 6 of 12 folds under doubled costs and a one-hour fill delay.</p>
+    <p>The daily-trend-30-v1 test covers twelve chronological, nonoverlapping 90-day validation folds from October 23, 2023 through October 7, 2026. Median net return was +0.372% at baseline costs (range −1.713% to +3.455%) and +0.290% under doubled costs and a one-hour delay (range −1.777% to +3.390%). Worst drawdown in that stress case was 3.501%; it beat the passive 10% BTC allocation in 4 of 12 folds.</p>
+    <p>Neither candidate was nominated, and neither test used a prospective holdout. These historical simulations do not establish future returns or support a 200% annual target. <a href="daily-trend-results.json" download>Download the full daily-trend results (JSON)</a> (SHA-256: <code>3ede446fa3f76991b5da9c90e8cbe0ba8e6ad38448006d50360a229b39aff67b</code>).</p>
   </section>
 
   <section id="methods">
